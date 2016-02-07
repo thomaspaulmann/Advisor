@@ -1,0 +1,18 @@
+android {
+    lintOptions {
+        // Aborting
+        abortOnError     true
+        warningsAsErrors true
+
+        // Optional lint config
+        def optionalRules = new File("${project.rootDir}/advisor-lint-rules.xml")
+        if (optionalRules.exists()) {
+            lintConfig = optionalRules
+        }
+
+        // Report HTML
+        xmlReport  false
+        htmlReport true
+        htmlOutput file("${project.rootDir}/build/reports/lint/lint-report.html")
+    }
+}
