@@ -14,11 +14,7 @@ afterEvaluate { project ->
         // Config pathes
         classpath = files(project.configurations.compile.asPath)
         classes   = fileTree('build/intermediates/classes/').exclude('**/*R$*.class') as FileCollection
-        source    = fileTree('src/main/java/')
-
-        // Analyze only java files
-        include '**/*.java'
-        exclude '**/gen/**'
+        source    = fileTree('src/main/java/').include('**/*.java') as FileCollection
 
         // Optional exclude filter
         def optionalFilter = new File("${project.rootDir}/advisor-findbugs-rules.xml")
