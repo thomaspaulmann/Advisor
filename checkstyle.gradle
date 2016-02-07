@@ -1,0 +1,29 @@
+apply plugin: 'checkstyle'
+
+// Settings
+ext {
+  advisorCheckstyleConfig  = "${project.rootDir}/advisor-checkstyle-config.xml"
+}
+
+// Settings
+checkstyle {
+    configProperties = ['checkstyle.cache.file': rootProject.file('build/checkstyle.cache')]
+}
+
+// Task
+task checkstyle(type: Checkstyle) {
+    // Description
+    description = 'Run Checkstyle'
+    group       = 'verification'
+
+    // Paths
+    classpath  = files()
+    configFile = new File(advisorCheckstyleConfig)
+
+    // Sources
+    source  'src'
+    include '**/*.java'
+    exclude '**/gen/**'
+    exclude '**/BuildConfig.java'
+    exclude '**/R.java'
+}
