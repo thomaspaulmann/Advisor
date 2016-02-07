@@ -1,8 +1,14 @@
 apply plugin: 'findbugs'
 
+// Settings
+ext {
+  advisorFindbugsRules  = "${project.rootDir}/advisor-findbugs-rules.xml"
+  advisorFindbugsOutput = "${project.rootDir}/build/reports/findbugs/findbugs-report.html"
+}
+
+// Task
 afterEvaluate { project ->
     task('findBugs', type: FindBugs) {
-
         // Description
         description = 'Run FindBugs'
         group       = 'verification'
@@ -17,7 +23,7 @@ afterEvaluate { project ->
         source    = fileTree('src/main/java/').include('**/*.java') as FileCollection
 
         // Optional exclude filter
-        def optionalFilter = new File("${project.rootDir}/advisor-findbugs-rules.xml")
+        def optionalFilter = new File(advisorFindbugsRules)
         if (optionalFilter.exists()) {
             excludeFilter = optionalFilter
         }
@@ -30,7 +36,7 @@ afterEvaluate { project ->
 
             html {
                 enabled     = true
-                destination "${project.rootDir}/build/reports/findbugs/findbugs-report.html"
+                destination = advisorFindbugsOutput
             }
         }
     }
