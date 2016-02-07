@@ -1,0 +1,36 @@
+afterEvaluate { project ->
+    task('findBugs', type: FindBugs) {
+
+        // Description
+        description = 'Run FindBugs'
+        group       = 'verification'
+
+        // Aborting
+        ignoreFailures = false
+        effort         = 'max'
+
+        // Config pathes
+        classpath = files(project.configurations.compile.asPath)
+        classes   = fileTree('build/intermediates/classes/').exclude('**/*R$*.class') as FileCollection
+        source    = fileTree('src/main/java/')
+
+        // Analyze only java files
+        include '**/*.java'
+        exclude '**/gen/**'
+
+        // Report
+        reports {
+            xml{
+                enabled = false
+            }
+
+            html {
+                enabled     = true
+                destination "${project.rootDir}/build/reports/findbugs/findbugs-report.html"
+            }
+        }
+    }
+}
+
+// Run FindBugs with Task 'check'
+check.dependsOn 'findBugs'
