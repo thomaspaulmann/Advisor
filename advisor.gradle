@@ -1,5 +1,7 @@
+// Add FindBugs
 apply from: 'https://raw.githubusercontent.com/thomaspaulmann/Advisor/master/findbugs.gradle'
-apply from: 'https://raw.githubusercontent.com/thomaspaulmann/Advisor/master/lint.gradle'
+check.dependsOn 'findBugs'
 
-// Add Tasks to 'check'
-check.dependsOn 'lint', 'findBugs'
+// Add Lint
+apply from: 'https://raw.githubusercontent.com/thomaspaulmann/Advisor/master/lint.gradle'
+check.dependsOn 'lint'
