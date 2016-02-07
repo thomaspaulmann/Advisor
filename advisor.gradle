@@ -1,1 +1,2 @@
 apply from: 'https://raw.githubusercontent.com/thomaspaulmann/Advisor/master/findbugs/findbugs.gradle'
+apply from: 'https://raw.githubusercontent.com/thomaspaulmann/Advisor/master/lint.gradle'
