@@ -12,7 +12,7 @@ android {
         warningsAsErrors true
 
         // Optional lint config
-        def optionalRules = advisorLintRules
+        def optionalRules = new File(advisorLintRules)
         if (optionalRules.exists()) {
             lintConfig = optionalRules
         }
