@@ -1,0 +1,1 @@
+apply from: 'https://raw.githubusercontent.com/thomaspaulmann/Advisor/master/findbugs/findbugs.gradle'
