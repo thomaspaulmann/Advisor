@@ -20,6 +20,12 @@ afterEvaluate { project ->
         include '**/*.java'
         exclude '**/gen/**'
 
+        // Optional exclude filter
+        def optionalFilter = new File("${project.rootDir}/advisor-findbugs-rules.xml")
+        if (optionalFilter.exists()) {
+            excludeFilter = optionalFilter
+        }
+
         // Report
         reports {
             xml{
