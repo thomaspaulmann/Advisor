@@ -1,0 +1,49 @@
+apply plugin: 'checkstyle'
+
+// Settings
+ext {
+  advisorCheckstyleConfig  = "${project.rootDir}/advisor/advisor-checkstyle-config.xml"
+}
+
+// Settings
+checkstyle {
+    configProperties = ['checkstyle.cache.file': rootProject.file('build/checkstyle.cache')]
+}
+
+// Tasks
+task checkstyle(type: Checkstyle) {
+    dependsOn 'download'
+
+    // Description
+    description = 'Run Checkstyle'
+    group       = 'advisor'
+
+    // Paths
+    classpath  = files()
+    configFile = new File(advisorCheckstyleConfig)
+
+    // Sources
+    source  'src'
+    include '**/*.java'
+    exclude '**/gen/**'
+    exclude '**/BuildConfig.java'
+    exclude '**/R.java'
+}
+
+task download() {
+    // Description
+    description = 'Download resources for Advisor.'
+    group       = 'advisor'
+
+    // Create advisor path
+    def advisorPath = new File("${project.rootDir}/advisor")
+    if (!advisorPath.exists()) { advisorPath.mkdir() }
+
+    // Checkstyle configuration
+    def checkstyleFile = new File("${advisorPath}/advisor-checkstyle-config.xml")
+    if (!checkstyleFile.exists()) {
+        println "# - Start downloading of Checkstyle configuration."
+        new URL(ext.URL + '/checkstyle/checkstyle-rules.xml').withInputStream{ i -> checkstyleFile.withOutputStream{ it << i }}
+        println "# - Finished downloading of Checkstyle configuration."
+    }
+}
