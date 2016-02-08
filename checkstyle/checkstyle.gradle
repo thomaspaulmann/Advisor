@@ -1,12 +1,6 @@
 apply plugin: 'checkstyle'
 
 // Settings
-ext {
-    checkstylerules  = "${project.rootDir}/advisor/rules/checkstyle-rules.xml"
-    checkstyleOutput = "${project.rootDir}/advisor/reports/checkstyle/checkstyle-report.html"
-}
-
-// Settings
 checkstyle {
     configProperties = ['checkstyle.cache.file': rootProject.file('build/checkstyle.cache')]
 }

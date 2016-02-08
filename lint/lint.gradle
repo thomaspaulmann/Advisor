@@ -1,9 +1,3 @@
-// Settings
-ext {
-  lintRules  = "${project.rootDir}/advisor/rules/lint-rules.xml"
-  lintOutput = "${project.rootDir}/advisor/reports/lint/lint-report.html"
-}
-
 // Options
 android {
     lintOptions {
