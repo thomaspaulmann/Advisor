@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<FindBugsFilter>
+  <!-- Exclude Android R -->
+  <Match>
+    <Class name="~.*\.R\$.*"/>
+  </Match>
+
+  <!-- Exclude Android Manifest -->
+  <Match>
+    <Class name="~.*\.Manifest\$.*"/>
+  </Match>
+
+</FindBugsFilter>
