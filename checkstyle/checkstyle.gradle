@@ -16,7 +16,7 @@ afterEvaluate { project ->
 
         // Paths
         classpath  = files()
-        configFile = new File(checkstylerules)
+        configFile = new File(checkstyleRules)
 
         // Sources
         source  'src'
