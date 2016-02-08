@@ -1,16 +1,16 @@
 ext {
     // FindBugs
-    findbugsEnabled = false
+    findbugsEnabled = true
     findbugsRules   = "${project.rootDir}/advisor/rules/findbugs-rules.xml"
     findbugsOutput  = "${project.rootDir}/advisor/reports/findbugs/findbugs-report.html"
 
     // Lint
-    lintEnabled = false
+    lintEnabled = true
     lintRules   = "${project.rootDir}/advisor/rules/lint-rules.xml"
     lintOutput  = "${project.rootDir}/advisor/reports/lint/lint-report.html"
 
     // Checkstyle
-    checkstyleEnabled = false
-    checkstylerules   = "${project.rootDir}/advisor/rules/checkstyle-rules.xml"
+    checkstyleEnabled = true
+    checkstyleRules   = "${project.rootDir}/advisor/rules/checkstyle-rules.xml"
     checkstyleOutput  = "${project.rootDir}/advisor/reports/checkstyle/checkstyle-report.html"
 }
