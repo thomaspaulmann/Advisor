@@ -1,7 +1,11 @@
-// Add FindBugs
+// Apply FindBugs
 apply from: 'https://raw.githubusercontent.com/thomaspaulmann/Advisor/master/findbugs.gradle'
 check.dependsOn 'findBugs'
 
-// Add Lint
+// Apply Lint
 apply from: 'https://raw.githubusercontent.com/thomaspaulmann/Advisor/master/lint.gradle'
 check.dependsOn 'lint'
+
+// Apply Checkstyle
+apply from: 'https://raw.githubusercontent.com/thomaspaulmann/Advisor/master/checkstyle.gradle'
+check.dependsOn 'checkstyle'
