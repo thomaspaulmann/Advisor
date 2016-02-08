@@ -2,7 +2,7 @@ apply plugin: 'checkstyle'
 
 // Settings
 ext {
-    advisorCheckstyleConfig  = "${project.rootDir}/advisor/advisor-checkstyle-config.xml"
+    checkstyleConfig  = "${project.rootDir}/advisor/advisor-checkstyle-config.xml"
 }
 
 // Settings
@@ -21,7 +21,7 @@ afterEvaluate { project ->
 
         // Paths
         classpath  = files()
-        configFile = new File(advisorCheckstyleConfig)
+        configFile = new File(checkstyleConfig)
 
         // Sources
         source  'src'

@@ -1,7 +1,7 @@
 // Settings
 ext {
-  advisorLintRules  = "${project.rootDir}/advisor-lint-rules.xml"
-  advisorLintOutput = "${project.rootDir}/build/reports/lint/lint-report.html"
+  lintRules  = "${project.rootDir}/advisor-lint-rules.xml"
+  lintOutput = "${project.rootDir}/build/reports/lint/lint-report.html"
 }
 
 // Options
@@ -12,7 +12,7 @@ android {
         warningsAsErrors true
 
         // Optional lint config
-        def optionalRules = new File(advisorLintRules)
+        def optionalRules = new File(lintRules)
         if (optionalRules.exists()) {
             lintConfig = optionalRules
         }
@@ -20,7 +20,7 @@ android {
         // Report HTML
         xmlReport  false
         htmlReport true
-        htmlOutput file(advisorLintOutput)
+        htmlOutput file(lintOutput)
     }
 }
 
