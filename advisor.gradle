@@ -1,5 +1,5 @@
 ext {
-  def endpoint = 'https://raw.githubusercontent.com/thomaspaulmann/Advisor/master'
+  endpoint = 'https://raw.githubusercontent.com/thomaspaulmann/Advisor/master'
 }
 
 // Apply FindBugs
