@@ -1,13 +1,15 @@
-def URL = 'https://raw.githubusercontent.com/thomaspaulmann/Advisor/master'
+ext {
+  def URL = 'https://raw.githubusercontent.com/thomaspaulmann/Advisor/master'
+}
 
 // Apply FindBugs
-apply from: URL + '/findbugs.gradle'
+apply from: URL + '/findbugs/findbugs.gradle'
 check.dependsOn 'findBugs'
 
 // Apply Lint
-apply from: URL + '/lint.gradle'
+apply from: URL + '/lint/lint.gradle'
 check.dependsOn 'lint'
 
 // Apply Checkstyle
-apply from: URL + '/checkstyle.gradle'
+apply from: URL + '/checkstyle/checkstyle.gradle'
 check.dependsOn 'checkstyle'
