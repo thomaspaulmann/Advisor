@@ -5,14 +5,23 @@ ext {
 // Apply setup
 apply from: endpoint + '/setup.gradle'
 
+// Apply config
+apply from: endpoint + '{project.rootDir}/advisor/advisorConfig.gradle'
+
 // Apply FindBugs
-apply from: endpoint + '/findbugs/findbugs.gradle'
-check.dependsOn 'findBugs'
+if (findbugsEnabled) {
+    apply from: endpoint + '/findbugs/findbugs.gradle'
+    check.dependsOn 'findBugs'
+}
 
 // Apply Lint
-apply from: endpoint + '/lint/lint.gradle'
-check.dependsOn 'lint'
+if (lintEnabled) {
+    apply from: endpoint + '/lint/lint.gradle'
+    check.dependsOn 'lint'
+}
 
 // Apply Checkstyle
-apply from: endpoint + '/checkstyle/checkstyle.gradle'
-check.dependsOn 'checkstyle'
+if (checkstyleEnabled) {
+    apply from: endpoint + '/checkstyle/checkstyle.gradle'
+    check.dependsOn 'checkstyle'
+}
