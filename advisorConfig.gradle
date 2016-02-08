@@ -1,0 +1,11 @@
+// Settings
+ext {
+    // FindBugs
+    findbugsEnabled = true
+
+    // Lint
+    lintEnabled = true
+
+    // Checkstyle
+    checkstyleEnabled = true
+}
