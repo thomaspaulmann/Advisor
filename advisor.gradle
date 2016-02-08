@@ -1,15 +1,15 @@
 ext {
-  def URL = 'https://raw.githubusercontent.com/thomaspaulmann/Advisor/master'
+  def endpoint = 'https://raw.githubusercontent.com/thomaspaulmann/Advisor/master'
 }
 
 // Apply FindBugs
-apply from: URL + '/findbugs/findbugs.gradle'
+apply from: endpoint + '/findbugs/findbugs.gradle'
 check.dependsOn 'findBugs'
 
 // Apply Lint
-apply from: URL + '/lint/lint.gradle'
+apply from: endpoint + '/lint/lint.gradle'
 check.dependsOn 'lint'
 
 // Apply Checkstyle
-apply from: URL + '/checkstyle/checkstyle.gradle'
+apply from: endpoint + '/checkstyle/checkstyle.gradle'
 check.dependsOn 'checkstyle'

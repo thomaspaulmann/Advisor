@@ -43,7 +43,7 @@ task download() {
     def checkstyleFile = new File("${advisorPath}/advisor-checkstyle-config.xml")
     if (!checkstyleFile.exists()) {
         println "# - Start downloading of Checkstyle configuration."
-        new URL(ext.URL + '/checkstyle/checkstyle-rules.xml').withInputStream{ i -> checkstyleFile.withOutputStream{ it << i }}
+        new URL(ext.endpoint + '/checkstyle/checkstyle-rules.xml').withInputStream{ i -> checkstyleFile.withOutputStream{ it << i }}
         println "# - Finished downloading of Checkstyle configuration."
     }
 }
