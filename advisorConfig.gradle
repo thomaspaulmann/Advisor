@@ -1,4 +1,3 @@
-// Settings
 ext {
     // FindBugs
     findbugsEnabled = true

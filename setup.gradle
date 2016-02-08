@@ -6,11 +6,19 @@ task setup() {
     println "# Start setup of Advisor."
 
     // Create advisor path
-    def path = new File("${project.rootDir}/advisor/rules")
+    def path = new File("${project.rootDir}/advisor")
     if (!path.exists()) { path.mkdirs() }
 
+    // Download config file
+    def file = new File("${path}/advisorConfig.gradle")
+    if (!file.exists()) {
+        println "# - Start downloading of Advisor Configuration file."
+        new URL(endpoint + '/advisorConfig.gradle').withInputStream{ i -> file.withOutputStream{ it << i }}
+        println "# - Finished downloading of Advisor Configuration file."
+    }
+
     // Download Checkstyle rules
-    def file = new File("${path}/checkstyle-rules.xml")
+    file = new File("${path}/rules/checkstyle-rules.xml")
     if (!file.exists()) {
         println "# - Start downloading of Checkstyle rules."
         new URL(endpoint + '/checkstyle/checkstyle-rules.xml').withInputStream{ i -> file.withOutputStream{ it << i }}
@@ -18,7 +26,7 @@ task setup() {
     }
 
     // Download FindBugs rules
-    file = new File("${path}/findbugs-rules.xml")
+    file = new File("${path}/rules/findbugs-rules.xml")
     if (!file.exists()) {
         println "# - Start downloading of Findbugs rules."
         new URL(endpoint + '/findbugs/findbugs-rules.xml').withInputStream{ i -> file.withOutputStream{ it << i }}
@@ -26,7 +34,7 @@ task setup() {
     }
 
     // Download Lint rules
-    file = new File("${path}/lint-rules.xml")
+    file = new File("${path}/rules/lint-rules.xml")
     if (!file.exists()) {
         println "# - Start downloading of Lint rules."
         new URL(endpoint + '/lint/lint-rules.xml').withInputStream{ i -> file.withOutputStream{ it << i }}
