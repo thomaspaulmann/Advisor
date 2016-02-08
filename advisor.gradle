@@ -6,7 +6,7 @@ ext {
 apply from: endpoint + '/setup.gradle'
 
 // Apply config
-apply from: endpoint + '{project.rootDir}/advisor/advisorConfig.gradle'
+apply from: '/advisor/advisorConfig.gradle'
 
 // Apply FindBugs
 if (findbugsEnabled) {
