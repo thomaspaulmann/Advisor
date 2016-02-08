@@ -2,6 +2,9 @@ ext {
   endpoint = 'https://raw.githubusercontent.com/thomaspaulmann/Advisor/master'
 }
 
+// Apply setup
+apply from: endpoint + '/setup.gradle'
+
 // Apply FindBugs
 apply from: endpoint + '/findbugs/findbugs.gradle'
 check.dependsOn 'findBugs'
