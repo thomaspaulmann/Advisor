@@ -4,7 +4,7 @@ ext {
   advisorLintOutput = "${project.rootDir}/build/reports/lint/lint-report.html"
 }
 
-// Task
+// Options
 android {
     lintOptions {
         // Aborting
@@ -23,3 +23,5 @@ android {
         htmlOutput file(advisorLintOutput)
     }
 }
+
+lint.dependsOn 'setup'

@@ -9,9 +9,11 @@ ext {
 // Task
 afterEvaluate { project ->
     task('findBugs', type: FindBugs) {
+        dependsOn 'setup'
+
         // Description
         description = 'Run FindBugs'
-        group       = 'verification'
+        group       = 'advisor'
 
         // Aborting
         ignoreFailures = false
