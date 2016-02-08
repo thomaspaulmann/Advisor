@@ -2,7 +2,7 @@ apply plugin: 'findbugs'
 
 // Settings
 ext {
-    findbugsRules  = "${project.rootDir}/advisor/rules/advisor-findbugs-rules.xml"
+    findbugsRules  = "${project.rootDir}/advisor/rules/findbugs-rules.xml"
     findbugsOutput = "${project.rootDir}/advisor/reports/findbugs/findbugs-report.html"
 }
 

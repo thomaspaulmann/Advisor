@@ -2,7 +2,8 @@ apply plugin: 'checkstyle'
 
 // Settings
 ext {
-    checkstyleConfig  = "${project.rootDir}/advisor/advisor-checkstyle-config.xml"
+    checkstylerules  = "${project.rootDir}/advisor/rules/checkstyle-rules.xml"
+    checkstyleOutput = "${project.rootDir}/advisor/reports/checkstyle/checkstyle-report.html"
 }
 
 // Settings
@@ -21,7 +22,7 @@ afterEvaluate { project ->
 
         // Paths
         classpath  = files()
-        configFile = new File(checkstyleConfig)
+        configFile = new File(checkstylerules)
 
         // Sources
         source  'src'
@@ -29,5 +30,16 @@ afterEvaluate { project ->
         exclude '**/gen/**'
         exclude '**/BuildConfig.java'
         exclude '**/R.java'
+
+        reports{
+            xml {
+                enabled = false
+            }
+
+            html {
+                enabled     = true
+                destination = checkstyleOutput
+            }
+        }
     }
 }
