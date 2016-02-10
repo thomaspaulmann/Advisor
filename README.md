@@ -1,3 +1,5 @@
+[![License](http://img.shields.io/:license-apache-brightgreen.svg?style=flat)](https://raw.githubusercontent.com/thomaspaulmann/Documentor/master/LICENSE)
+
 # Advisor
 Advisor is a bundle of scripts to detect potential bugs in your android code. 
 
