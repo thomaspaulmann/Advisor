@@ -14,6 +14,12 @@ if (findbugsEnabled) {
     check.dependsOn 'findBugs'
 }
 
+// Apply Pmd
+if (pmdEnabled) {
+    apply from: endpoint + '/pmd/pmd.gradle'
+    check.dependsOn 'pmd'
+}
+
 // Apply Lint
 if (lintEnabled) {
     apply from: endpoint + '/lint/lint.gradle'
