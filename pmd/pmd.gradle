@@ -1,0 +1,40 @@
+apply plugin: 'pmd'
+
+// Task
+task pmd(type: Pmd) {
+    description 'Run pmd'
+    group 'verification'
+    
+    ignoreFailures = false
+    dependsOn 'setup'
+
+    source 'src'
+    include '**/*.java'
+    exclude '**/gen/**'
+
+    ruleSets = [
+            "java-basic",
+            "java-braces",
+            "java-android",
+            "java-clone",
+            "java-codesize",
+            "java-finalizers",
+            "java-imports",
+            "java-migrating",
+            "java-strictexception",
+            "java-strings",
+            "java-typeresolution",
+            "java-unusedcode"
+    ]
+
+    reports {
+        xml {
+            enabled = false
+        }
+        html {
+            enabled = true
+            destination = pmdOutput
+        }
+    }
+}
+
