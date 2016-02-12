@@ -12,20 +12,7 @@ task pmd(type: Pmd) {
     include '**/*.java'
     exclude '**/gen/**'
 
-    ruleSets = [
-            "java-basic",
-            "java-braces",
-            "java-android",
-            "java-clone",
-            "java-codesize",
-            "java-finalizers",
-            "java-imports",
-            "java-migrating",
-            "java-strictexception",
-            "java-strings",
-            "java-typeresolution",
-            "java-unusedcode"
-    ]
+    ruleSetFiles = files(pmdRules)
 
     reports {
         xml {

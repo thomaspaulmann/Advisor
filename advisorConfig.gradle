@@ -6,6 +6,7 @@ ext {
     
     // Pmd
     pmdEnabled = true
+    pmdRules   = "${project.rootDir}/advisor/rules/pmd-rules.xml"
     pmdOutput  = "${project.rootDir}/advisor/reports/pmd/pmd-report.html"
 
     // Lint
