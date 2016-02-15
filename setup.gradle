@@ -33,6 +33,14 @@ task setup() {
         println "# - Finished downloading of Findbugs rules."
     }
 
+    // Download Pmd rules
+    file = new File("${project.rootDir}/advisor/rules/pmd-rules.xml")
+    if (!file.exists()) {
+        println "# - Start downloading of Pmd rules."
+        new URL(endpoint + '/pmd/pmd-rules.xml').withInputStream{ i -> file.withOutputStream{ it << i }}
+        println "# - Finished downloading of Pmd rules."
+    }
+
     // Download Lint rules
     file = new File("${project.rootDir}/advisor/rules/lint-rules.xml")
     if (!file.exists()) {
