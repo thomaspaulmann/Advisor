@@ -10,5 +10,15 @@ gradle-app.setting
 # Cache of project
 .gradletasknamecache
 
+# Local properties
+local.properties
+
 # Mac OS
 .DS_Store
+
+# IDE
+.idea/
+*.iml
+
+# Maven artifact
+maven
