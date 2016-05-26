@@ -10,3 +10,6 @@ apply from: 'https://raw.githubusercontent.com/thomaspaulmann/Advisor/release-1.
  ```
 
 [![License](http://img.shields.io/:license-apache-brightgreen.svg?style=flat)](https://raw.githubusercontent.com/thomaspaulmann/Advisor/master/LICENSE)
+
+# Todo
+- [ ] Port to a Gradle Plugin
